@@ -1,12 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: [
-        {
-            name: 'FTC',
-            deadline: '10-July-2024'
-        }
-    ]
+    value: []
 }
 
 export const projectListSlice = createSlice({
