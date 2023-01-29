@@ -1,5 +1,5 @@
 import Head from 'next/head'
-
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -12,6 +12,7 @@ export default function Home() {
       </Head>
         <main className='container text-center p-5'>
           <h1>Welcome to Projects</h1>
+          <Link className='btn btn-lg btn-primary mt-4 rounded-0' href="/project-list" >Check Projects List</Link> 
         </main>
     </>
   )
