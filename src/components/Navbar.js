@@ -1,6 +1,9 @@
 import Link from "next/link"
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+    const router = useRouter();
+
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container">
@@ -11,13 +14,13 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" style={{ flex: 'none' }} id="navbarNav">
                     <ul className="navbar-nav gap-4">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" href="/">Home</Link>
+                            <Link className={`nav-link ${router.pathname == '/' ? 'active' : ''}`} aria-current="page" href="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" href="/project-list">Projects List</Link>
+                            <Link className={`nav-link ${router.pathname == '/project-list' ? 'active' : ''}`} aria-current="page" href="/project-list">Projects List</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" href="/add-project">Add Project</Link>
+                            <Link className={`nav-link ${router.pathname == '/add-project' ? 'active' : ''}`} aria-current="page" href="/add-project">Add Project</Link>
                         </li>
                     </ul>
                 </div>
