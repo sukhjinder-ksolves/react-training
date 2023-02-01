@@ -8,14 +8,24 @@ export const projectListSlice = createSlice({
     name: 'projects',
     initialState,
     reducers: {
-        addProjectName: (state, action) => {
-            console.log(action.payload.deadline)
+        addProject: (state, action) => {
             state.value.push(action.payload)
-            console.log(state.value)
+        },
+        editProject: (state, action) => {
+            console.log(action.payload)
+            state.value.map((project) => {
+                if(project.id === action.payload.id) {
+                    project.name = action.payload.name
+                    project.deadline = action.payload.deadline
+                }
+            })
+        },
+        deleteProject: (state, action) => {
+            state.value = state.value.filter((project) => project.id !== action.payload);
         }
     }
 })
 
-export const { addProjectName } = projectListSlice.actions
+export const { addProject, editProject, deleteProject } = projectListSlice.actions
 
 export default projectListSlice.reducer
